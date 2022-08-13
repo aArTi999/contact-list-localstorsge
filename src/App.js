@@ -1,25 +1,36 @@
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
+import { Container } from 'reactstrap';
+import AddContact from './components/AddContact';
+import Contacts from './components/Contacts';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
+const App = () => {
+  const [contacts, setContacts] = useState([]); 
 
-function App() {
+  useEffect(() =>{
+    const storageContacts = JSON.parse(localStorage.getItem('contacts'));
+    setContacts(storageContacts);
+  }, []);
+
+  const addContact = (contact) => {
+    setContacts([...contacts, contact]);
+  };
+
+  const removeContact = (id) => {
+    setContacts(contacts.filter((contact) => contact.id !== id));
+  }
+
+  useEffect(() => {
+    localStorage.setItem("contacts", JSON.stringify(contacts));
+  }, [contacts]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <Container className='body' fluid>
+     <h1 className='head-text'>Humare Sampark</h1>
+     <Contacts contacts={contacts} removeContact={removeContact} />
+     <AddContact addContact={addContact} />
+   </Container> 
   );
-}
+};
 
 export default App;
