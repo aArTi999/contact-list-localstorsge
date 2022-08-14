@@ -1,17 +1,38 @@
-.body{
+.body-light{
   margin: auto;
+  background-color: #fff;
+  color: #000;
+  min-height: 100vh;
+}
+.body-dark{
+  margin: auto;
+  background-color: #000;
+  color: #fff;
 }
 
 .head-text{
   text-align: center;
 }
 
-.field-container{
+.field-container-light{
   width: 80%;
   display: flex;
   justify-content: space-around;
   margin: 0 auto;
   background-color: #fff;
+  color: #000;
+  height: 2%;
+  padding: 20px 40px;
+  border-radius: 4px;
+  box-shadow: 2px 5px 10px rgba(0, 0, 0,0.4);
+}
+.field-container-dark{
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  background-color: #000;
+  color: #fff;
   height: 2%;
   padding: 20px 40px;
   border-radius: 4px;
@@ -24,16 +45,17 @@
 
 .input-field{
   padding: 4px 8px;
-  
 }
 
-.contacts-container{
+.light-contacts-container{
   width: 80%;
   background-color: #fff;
   margin: 0 auto;
   margin-bottom: 26px;
 }
-
-ul{
-  
+.dark-contacts-container{
+  width: 80%;
+  background-color: #000;
+  margin: 0 auto;
+  margin-bottom: 26px;
 }
