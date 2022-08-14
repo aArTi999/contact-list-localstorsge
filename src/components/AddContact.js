@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button, Col, Container, Form, FormGroup, Input, Label, Row } from 'reactstrap';
 import { v4 } from 'uuid';
 import '../App.css';
-const AddContact = ({addContact}) => {
+const AddContact = ({addContact, theme}) => {
 
     const [name, setName] = useState('');
     const [number, setNumber] = useState('');
@@ -30,7 +30,7 @@ const AddContact = ({addContact}) => {
 
     return (
         <Form onSubmit={saveContact}>
-            <Container fluid className='field-container'>
+            <Container fluid className={theme === 'light' ?'field-container-light': 'field-container-dark'}>
                 <Row >
                     <Col md="6">
                         <FormGroup>

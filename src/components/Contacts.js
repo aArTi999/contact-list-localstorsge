@@ -2,11 +2,11 @@ import React from 'react';
 import { Col, Container, ListGroup, ListGroupItem, Row, Button } from 'reactstrap';
 import "../App.css";
 
-const Contacts = ({contacts, removeContact}) => {
+const Contacts = ({theme, contacts, removeContact}) => {
     return (
-        <Container fluid className='contacts-container'>
+        <Container fluid className='light-contacts-container'>
             <ListGroup>
-                {contacts.map((contact) => <ListGroupItem key={contact.id}>
+                {contacts.map((contact) => <ListGroupItem key={contact.id} color={theme === 'dark' ?'secondary' : 'success'}>
                    <Row>
                        <Col md="4">{contact.name}</Col>
                        <Col md="6">{contact.number}</Col>
